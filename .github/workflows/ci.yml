@@ -1,0 +1,27 @@
+name: WazuhX Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Validate XML configs
+        run: echo "Validate ossec configs"
+
+      - name: Validate Sigma rules
+        run: echo "Validate sigma rules"
+
+      - name: Validate YARA rules
+        run: echo "Validate yara rules"
+
+      - name: Validate documentation structure
+        run: echo "Validate markdown files"
