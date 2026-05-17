@@ -1,0 +1,19 @@
+<decoder name="aws-cloudtrail-login-failure">
+  <prematch>ConsoleLogin</prematch>
+</decoder>
+
+<decoder name="aws-cloudtrail-login-failure-detail">
+  <parent>aws-cloudtrail-login-failure</parent>
+  <regex>"eventName":"ConsoleLogin".*"errorMessage":"Failed authentication"</regex>
+  <order>event</order>
+</decoder>
+
+<decoder name="azure-ad-login-anomaly">
+  <prematch>Sign-in logs</prematch>
+</decoder>
+
+<decoder name="azure-ad-login-anomaly-detail">
+  <parent>azure-ad-login-anomaly</parent>
+  <regex>Failure Reason: (.+)</regex>
+  <order>reason</order>
+</decoder>

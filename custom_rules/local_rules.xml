@@ -1,0 +1,28 @@
+<group name="local,syslog,authentication,enterprise_core">
+
+  <rule id="100001" level="7">
+    <if_sid>5710</if_sid>
+    <description>Multiple failed SSH authentication attempts detected</description>
+    <group>authentication_failed,bruteforce,mitre_T1110</group>
+  </rule>
+
+  <rule id="100002" level="10">
+    <if_sid>550</if_sid>
+    <match>root</match>
+    <description>Root user login detected</description>
+    <group>privilege_escalation,mitre_T1078</group>
+  </rule>
+
+  <rule id="100003" level="8">
+    <if_sid>554</if_sid>
+    <description>New user account created</description>
+    <group>persistence,account_manipulation,mitre_T1136</group>
+  </rule>
+
+  <rule id="100004" level="9">
+    <if_sid>5902</if_sid>
+    <description>Critical system binary modified</description>
+    <group>fim,integrity,mitre_T1565</group>
+  </rule>
+
+</group>

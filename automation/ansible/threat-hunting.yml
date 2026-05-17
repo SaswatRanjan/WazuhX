@@ -1,0 +1,19 @@
+---
+- name: Deploy Threat Hunting Modules
+  hosts: all
+  become: yes
+  tasks:
+    - name: Copy custom rules
+      copy:
+        src: ./custom_rules/
+        dest: /var/ossec/etc/rules/
+
+    - name: Copy custom decoders
+      copy:
+        src: ./custom_decoders/
+        dest: /var/ossec/etc/decoders/
+
+    - name: Restart Wazuh services
+      systemd:
+        name: wazuh-agent
+        state: restarted

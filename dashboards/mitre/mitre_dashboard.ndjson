@@ -1,0 +1,14 @@
+{
+  "type": "dashboard",
+  "attributes": {
+    "title": "Mitre Dashboard",
+    "description": "MITRE ATT&CK mapping, threat coverage, and heatmaps.",
+    "panelsJSON": "[]",
+    "optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+    "version": 1,
+    "timeRestore": false,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+    }
+  }
+}

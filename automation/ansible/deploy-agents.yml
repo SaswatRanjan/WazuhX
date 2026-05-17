@@ -1,0 +1,24 @@
+---
+- name: Deploy WazuhX Agents
+  hosts: wazuh_agents
+  become: yes
+  vars:
+    wazuh_manager_ip: "YOUR_MANAGER_IP"
+  tasks:
+    - name: Install Wazuh agent
+      apt:
+        name: wazuh-agent
+        update_cache: yes
+        state: present
+
+    - name: Configure agent manager address
+      replace:
+        path: /var/ossec/etc/ossec.conf
+        regexp: '<address>.*</address>'
+        replace: '<address>{{ wazuh_manager_ip }}</address>'
+
+    - name: Enable and start Wazuh agent
+      systemd:
+        name: wazuh-agent
+        enabled: yes
+        state: restarted

@@ -1,0 +1,38 @@
+---
+- name: Deploy WazuhX Manager
+  hosts: wazuh_manager
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install dependencies
+      apt:
+        name:
+          - curl
+          - apt-transport-https
+          - unzip
+          - wget
+          - gnupg
+        state: present
+
+    - name: Add Wazuh GPG key
+      shell: curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | apt-key add -
+
+    - name: Add Wazuh repository
+      copy:
+        dest: /etc/apt/sources.list.d/wazuh.list
+        content: "deb https://packages.wazuh.com/4.x/apt/ stable main\n"
+
+    - name: Install Wazuh manager
+      apt:
+        name: wazuh-manager
+        update_cache: yes
+        state: present
+
+    - name: Enable and start Wazuh manager
+      systemd:
+        name: wazuh-manager
+        enabled: yes
+        state: started

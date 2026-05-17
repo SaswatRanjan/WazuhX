@@ -1,0 +1,19 @@
+<decoder name="scada-config-change">
+  <prematch>SCADA</prematch>
+</decoder>
+
+<decoder name="scada-config-change-detail">
+  <parent>scada-config-change</parent>
+  <regex>Configuration modified by (\w+)</regex>
+  <order>user</order>
+</decoder>
+
+<decoder name="plc-upload-event">
+  <prematch>PLC</prematch>
+</decoder>
+
+<decoder name="plc-upload-event-detail">
+  <parent>plc-upload-event</parent>
+  <regex>Logic uploaded from ([0-9.]+)</regex>
+  <order>srcip</order>
+</decoder>

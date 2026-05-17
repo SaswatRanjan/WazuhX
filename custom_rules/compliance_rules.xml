@@ -1,0 +1,18 @@
+<group name="compliance,pci_dss,gdpr,hipaa,nist">
+
+  <rule id="140001" level="8">
+    <description>Unauthorized access to compliance-controlled file detected</description>
+    <group>compliance_violation,file_access</group>
+  </rule>
+
+  <rule id="140002" level="9">
+    <description>Audit logging disabled</description>
+    <group>compliance_violation,logging_failure</group>
+  </rule>
+
+  <rule id="140003" level="10">
+    <description>Password policy weakened</description>
+    <group>compliance_violation,password_policy</group>
+  </rule>
+
+</group>

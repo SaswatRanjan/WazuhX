@@ -1,0 +1,15 @@
+title: AWS CloudTrail Disable Attempt
+id: 500004
+status: stable
+description: Detects disabling of CloudTrail logging
+logsource:
+  product: aws
+
+detection:
+  selection:
+    eventName: DeleteTrail
+  condition: selection
+level: critical
+tags:
+  - attack.defense_evasion
+  - attack.t1562

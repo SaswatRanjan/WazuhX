@@ -1,0 +1,19 @@
+<decoder name="firewall-deny-events">
+  <prematch>DENY</prematch>
+</decoder>
+
+<decoder name="firewall-deny-events-detail">
+  <parent>firewall-deny-events</parent>
+  <regex>SRC=([0-9.]+) DST=([0-9.]+)</regex>
+  <order>srcip,dstip</order>
+</decoder>
+
+<decoder name="vpn-auth-failure">
+  <prematch>OpenVPN</prematch>
+</decoder>
+
+<decoder name="vpn-auth-failure-detail">
+  <parent>vpn-auth-failure</parent>
+  <regex>AUTH_FAILED.* ([0-9.]+)</regex>
+  <order>srcip</order>
+</decoder>

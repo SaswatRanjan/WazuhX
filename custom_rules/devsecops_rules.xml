@@ -1,0 +1,20 @@
+<group name="devsecops,ci_cd,container_security">
+
+  <rule id="150001" level="10">
+    <match>SECRET_KEY</match>
+    <description>Potential secret exposed in CI/CD logs</description>
+    <group>secret_leakage,devsecops</group>
+  </rule>
+
+  <rule id="150002" level="11">
+    <match>docker run --privileged</match>
+    <description>Privileged container execution detected</description>
+    <group>container_security,privilege_escalation</group>
+  </rule>
+
+  <rule id="150003" level="9">
+    <description>Unauthorized pipeline modification detected</description>
+    <group>ci_cd_integrity,devsecops</group>
+  </rule>
+
+</group>

@@ -1,0 +1,19 @@
+<decoder name="m365-login-anomaly">
+  <prematch>Microsoft 365</prematch>
+</decoder>
+
+<decoder name="m365-login-anomaly-detail">
+  <parent>m365-login-anomaly</parent>
+  <regex>User login failed for (\S+)</regex>
+  <order>user</order>
+</decoder>
+
+<decoder name="google-workspace-admin-change">
+  <prematch>Google Workspace</prematch>
+</decoder>
+
+<decoder name="google-workspace-admin-change-detail">
+  <parent>google-workspace-admin-change</parent>
+  <regex>Admin privilege granted to (\S+)</regex>
+  <order>user</order>
+</decoder>

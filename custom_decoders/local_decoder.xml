@@ -1,0 +1,19 @@
+<decoder name="custom-ssh-failures">
+  <program_name>sshd</program_name>
+</decoder>
+
+<decoder name="custom-ssh-failures-detail">
+  <parent>custom-ssh-failures</parent>
+  <regex>Failed password for (invalid user )?(\w+) from ([0-9.]+)</regex>
+  <order>user,srcip</order>
+</decoder>
+
+<decoder name="custom-useradd-events">
+  <program_name>useradd</program_name>
+</decoder>
+
+<decoder name="custom-useradd-events-detail">
+  <parent>custom-useradd-events</parent>
+  <regex>new user: name=(\w+)</regex>
+  <order>user</order>
+</decoder>

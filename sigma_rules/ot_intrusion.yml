@@ -1,0 +1,17 @@
+title: Unauthorized PLC Logic Upload
+id: 500009
+status: stable
+description: Detects unauthorized industrial control logic uploads
+logsource:
+  product: ot
+
+detection:
+  selection:
+    Message|contains:
+      - "PLC logic upload"
+      - "SCADA config modified"
+  condition: selection
+level: critical
+tags:
+  - ot_security
+  - critical_infrastructure

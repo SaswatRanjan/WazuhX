@@ -1,0 +1,19 @@
+---
+- name: Deploy Compliance Policies
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ensure SCA policies directory exists
+      file:
+        path: /var/ossec/ruleset/sca
+        state: directory
+
+    - name: Copy CIS compliance policies
+      copy:
+        src: ./compliance/
+        dest: /var/ossec/ruleset/sca/
+
+    - name: Restart Wazuh agent
+      systemd:
+        name: wazuh-agent
+        state: restarted

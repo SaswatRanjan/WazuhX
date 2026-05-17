@@ -1,0 +1,18 @@
+<decoder name="jenkins-pipeline-modification">
+  <prematch>Jenkins</prematch>
+</decoder>
+
+<decoder name="jenkins-pipeline-modification-detail">
+  <parent>jenkins-pipeline-modification</parent>
+  <regex>Modified pipeline by user (\w+)</regex>
+  <order>user</order>
+</decoder>
+
+<decoder name="docker-privileged-container">
+  <prematch>docker</prematch>
+</decoder>
+
+<decoder name="docker-privileged-container-detail">
+  <parent>docker-privileged-container</parent>
+  <regex>--privileged</regex>
+</decoder>

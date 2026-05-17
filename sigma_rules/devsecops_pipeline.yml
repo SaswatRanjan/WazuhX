@@ -1,0 +1,18 @@
+title: CI/CD Secret Exposure
+id: 500007
+status: stable
+description: Detects exposed secrets in pipeline logs
+logsource:
+  product: linux
+
+detection:
+  selection:
+    Message|contains:
+      - "SECRET_KEY"
+      - "AWS_SECRET_ACCESS_KEY"
+      - "PRIVATE_KEY"
+  condition: selection
+level: high
+tags:
+  - devsecops
+  - credential_exposure

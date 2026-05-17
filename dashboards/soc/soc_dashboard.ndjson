@@ -1,0 +1,14 @@
+{
+  "type": "dashboard",
+  "attributes": {
+    "title": "Soc Dashboard",
+    "description": "Live SOC monitoring, alerts, incidents, and operational visibility.",
+    "panelsJSON": "[]",
+    "optionsJSON": "{\"useMargins\":true,\"hidePanelTitles\":false}",
+    "version": 1,
+    "timeRestore": false,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+    }
+  }
+}

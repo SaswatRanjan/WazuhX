@@ -1,0 +1,17 @@
+title: Suspicious Cron Persistence Creation
+id: 500002
+status: stable
+description: Detects cron job creation for persistence
+logsource:
+  product: linux
+
+detection:
+  selection:
+    CommandLine|contains:
+      - "crontab"
+      - "/etc/cron"
+  condition: selection
+level: medium
+tags:
+  - attack.persistence
+  - attack.t1053

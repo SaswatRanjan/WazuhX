@@ -1,0 +1,18 @@
+<group name="ot_security,ics,scada">
+
+  <rule id="160001" level="12">
+    <description>SCADA configuration modification detected</description>
+    <group>ot_tampering,critical_infrastructure</group>
+  </rule>
+
+  <rule id="160002" level="11">
+    <description>Unauthorized PLC logic upload detected</description>
+    <group>ot_intrusion,mitre_T0851</group>
+  </rule>
+
+  <rule id="160003" level="10">
+    <description>Remote engineering workstation login anomaly</description>
+    <group>ot_access_anomaly</group>
+  </rule>
+
+</group>

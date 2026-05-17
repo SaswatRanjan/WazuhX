@@ -1,0 +1,21 @@
+<group name="cloud_security,aws,azure,gcp">
+
+  <rule id="130001" level="10">
+    <match>ConsoleLogin Failure</match>
+    <description>Failed AWS Console login detected</description>
+    <group>cloud_authentication,aws,mitre_T1110</group>
+  </rule>
+
+  <rule id="130002" level="12">
+    <match>DeleteTrail</match>
+    <description>AWS CloudTrail tampering detected</description>
+    <group>cloud_defense_evasion,mitre_T1562</group>
+  </rule>
+
+  <rule id="130003" level="11">
+    <match>CreateUser</match>
+    <description>New cloud IAM user creation detected</description>
+    <group>cloud_persistence,mitre_T1136</group>
+  </rule>
+
+</group>

@@ -1,0 +1,18 @@
+title: Suspicious PowerShell Encoded Command
+id: 500001
+status: stable
+description: Detects Base64-encoded PowerShell execution often used by attackers
+logsource:
+  product: windows
+  service: security
+
+detection:
+  selection:
+    CommandLine|contains:
+      - "powershell"
+      - "-enc"
+  condition: selection
+level: high
+tags:
+  - attack.execution
+  - attack.t1059.001

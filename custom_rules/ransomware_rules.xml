@@ -1,0 +1,21 @@
+<group name="ransomware,malware,threat_hunting">
+
+  <rule id="110001" level="12">
+    <match>vssadmin delete shadows</match>
+    <description>Shadow copy deletion attempt detected (possible ransomware)</description>
+    <group>ransomware,impact,mitre_T1490</group>
+  </rule>
+
+  <rule id="110002" level="12">
+    <match>wbadmin delete catalog</match>
+    <description>Backup catalog deletion detected</description>
+    <group>ransomware,impact,mitre_T1490</group>
+  </rule>
+
+  <rule id="110003" level="10">
+    <regex>\.locked|\.encrypted|\.crypt</regex>
+    <description>Mass file encryption extension detected</description>
+    <group>ransomware,file_encryption</group>
+  </rule>
+
+</group>

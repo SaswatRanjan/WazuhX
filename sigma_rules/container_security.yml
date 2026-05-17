@@ -1,0 +1,16 @@
+title: Privileged Docker Container Execution
+id: 500008
+status: stable
+description: Detects execution of privileged containers
+logsource:
+  product: linux
+
+detection:
+  selection:
+    CommandLine|contains:
+      - "docker run --privileged"
+  condition: selection
+level: high
+tags:
+  - container_security
+  - attack.privilege_escalation

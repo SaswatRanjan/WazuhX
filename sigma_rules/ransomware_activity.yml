@@ -1,0 +1,17 @@
+title: Shadow Copy Deletion
+id: 500006
+status: stable
+description: Detects ransomware shadow copy deletion attempts
+logsource:
+  product: windows
+
+detection:
+  selection:
+    CommandLine|contains:
+      - "vssadmin delete shadows"
+      - "wbadmin delete catalog"
+  condition: selection
+level: critical
+tags:
+  - attack.impact
+  - attack.t1490

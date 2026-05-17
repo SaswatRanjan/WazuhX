@@ -1,0 +1,17 @@
+title: After-Hours Privileged Access
+id: 500005
+status: stable
+description: Detects privileged logins outside business hours
+logsource:
+  product: windows
+
+detection:
+  selection:
+    EventID: 4624
+    PrivilegeLevel: Admin
+  timeframe: 1h
+  condition: selection
+level: high
+tags:
+  - attack.valid_accounts
+  - insider_threat
